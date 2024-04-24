@@ -1,8 +1,8 @@
-syntax = "proto3";
+syntax = 'proto3';
 
-package unary;
+package updateToken;
 
-service Unary {
+service ValidToken {
   rpc GetServerResponse (Message) returns (MessageResponse) {}
 }
 
@@ -11,13 +11,7 @@ message Message {
 }
 
 message MessageResponse {
-  string access_token = 2;
-  string refresh_token = 3;
+  string access_token = 1;
+  string refresh_token = 2;
 }
-
-
-
-
-
-
 

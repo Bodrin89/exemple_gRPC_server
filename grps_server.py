@@ -18,6 +18,8 @@ logger = logging.getLogger(__name__)
 
 
 class UnaryServicer(pb2_grpc.UnaryServicer):
+    """Сервер для получения access и refresh токенов"""
+
     async def GetServerResponse(self, request, context):
         # Получаем строку из входного запроса
         message = request.message

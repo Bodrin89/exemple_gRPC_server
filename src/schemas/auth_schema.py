@@ -8,6 +8,10 @@ class TokenIn(BaseModel):
     password: str
 
 
+class UpdateTokenIn(BaseModel):
+    refresh_token: str
+
+
 class TokenOut(BaseModel):
     access_token: str
     refresh_token: str

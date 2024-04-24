@@ -72,7 +72,7 @@ class AuthJWTServices:
         return encoded_jwt
 
     @staticmethod
-    async def __decode_jwt(token: str, key: str = SECRET_KEY, algorithms: str = ALGORITHM_JWT) -> dict:
+    async def decode_jwt(token: str, key: str = SECRET_KEY, algorithms: str = ALGORITHM_JWT) -> dict:
         """Декодирование токена"""
         try:
             decoded_token = jwt.decode(jwt=token, key=key, algorithms=[algorithms])
@@ -86,7 +86,7 @@ class AuthJWTServices:
     async def get_payload_token(credentials_token: HTTPAuthorizationCredentials = Depends(HTTPBearer())) -> dict:
         """Декодирование токена и получение данных из него"""
         token = credentials_token.credentials
-        payload = await AuthJWTServices.__decode_jwt(token)
+        payload = await AuthJWTServices.decode_jwt(token)
         return payload
 
     @staticmethod
