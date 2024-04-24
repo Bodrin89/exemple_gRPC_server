@@ -1,0 +1,20 @@
+line-length = 120
+indent-width = 4
+
+exclude = ['.venv', 'protobuf']
+
+[lint]
+# Read more here https://beta.ruff.rs/docs/rules/
+# By default, Ruff enables Flake8's E and F rules
+# Pyflakes - F, pycodestyle - E, W
+# flake8-builtins - A
+# Pylint - PLC, PLE, PLW
+# isort - I
+# T201 - поиск print в коде
+# ERA001 - поиск закоментированного кода
+select = ['E', 'F', 'W', 'A', 'PLC', 'PLE', 'PLW', 'I', "T201", "ERA001"]
+
+
+[format]
+quote-style = "single"
+

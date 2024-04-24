@@ -1,0 +1,28 @@
+services:
+  db:
+    container_name: auth_tortoise_db
+    image: postgres:16.2-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - ${POSTGRES_PORT}:5432
+    volumes:
+      - auth_tortoise_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+      timeout: 3s
+      retries: 10
+      interval: 3s
+    networks:
+      auth_tortoise_network:
+        aliases:
+          - auth_tortoise_network
+
+networks:
+  auth_tortoise_network:
+    name: 'auth_tortoise_network'
+
+volumes:
+  auth_tortoise_pg_data:
