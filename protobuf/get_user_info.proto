@@ -14,10 +14,3 @@ message MessageResponse {
   string access_token = 2;
   string refresh_token = 3;
 }
-
-
-
-
-
-
-
