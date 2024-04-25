@@ -1,0 +1,18 @@
+
+syntax = 'proto3';
+
+package getRole;
+
+service GetRole {
+  rpc GetServerResponse (Token) returns (MessageResponse) {}
+}
+
+message Token {
+  string access_token = 1;
+}
+
+message MessageResponse {
+  string role = 1;
+}
+
+

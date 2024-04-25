@@ -1,5 +1,6 @@
 from asyncio import Future
 from datetime import datetime, timedelta
+from typing import Coroutine
 
 import bcrypt
 import jwt
@@ -90,7 +91,7 @@ class AuthJWTServices:
         return payload
 
     @staticmethod
-    async def get_current_user(payload: Future[dict] = Depends(get_payload_token)) -> UserSchemaOut:
+    async def get_current_user(payload: Future[dict] | Coroutine = Depends(get_payload_token)) -> UserSchemaOut:
         """Получение текущего пользователя"""
         real_payload = await payload
         user_id = int(real_payload['id'])

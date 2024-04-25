@@ -1,5 +1,3 @@
-import logging
-
 import grpc
 from fastapi import HTTPException
 
@@ -10,9 +8,6 @@ import protobuf.update_token.update_token_pb2_grpc as update_token_pb2_grpc
 from src.schemas.auth_schema import TokenIn, UpdateTokenIn
 from src.services.auth_services import AuthJWTServices
 from src.services.user_services import UserServices
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 
 class ValidTokenServicer(update_token_pb2_grpc.ValidTokenServicer):
