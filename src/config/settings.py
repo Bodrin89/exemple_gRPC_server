@@ -33,3 +33,6 @@ EXPIRE_ACCESS_TOKEN_TIME = 30
 EXPIRE_REFRESH_TOKEN_TIME = 60 * 24 * 30
 SECRET_KEY = os.getenv('SECRET_KEY')
 SALT = os.getenv('SALT')
+
+GRPC_HOST = os.getenv('GRPC_HOST')
+GRPC_PORT = int(os.getenv('GRPC_PORT'))
